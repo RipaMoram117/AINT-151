@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matt Example HTML</title>
+        <style>
+        /* Inside here is where you define your CSS styles for your web page
+         * use .'s for classes -> see p class="styledText" and #'s for id's -> see id="btnAlert" */
+        body {
+            margin:0;
+            padding:0;
+        }
+        .styledText {
+            color:cyan;
+            background-color:darkslategrey;
+        }
+        .choice {
+            color:blue;
+            text-decoration: underline;
+            cursor:pointer;
+        }
+        </style>
+        <script>
+            var onStoryStep;
+            function body_onLoad() {
+                onStoryStep = "Start";
+                updateText();
+            }
+            function updateText()
+            {
+                if (onStoryStep == "Start")
+                {
+                    story.innerText = "You awaken to a bright, artificial sunrise running across your face. As your vision clears, you look outside, eyes sweeping across the curved innards of the Prometheus, your spacefaring workplace. You remember your meeting for today. ";
+                    choice1.innerText = "Go back to sleep";
+                    choice2.innerText = "Get up";
+                    choice3.innerText = "";
+                }
+                else if (onStoryStep == "Went back to sleep")
+                {
+                    story.innerText = "You close your eyes and drift back off into sleep, not ready to deal with today's tasks...";
+                    choice1.innerText = "Continue";
+                    choice2.innerText = "";
+                }
+                else if (onStoryStep == "Continued sleep")
+                {
+                    story.innerText = "You suddenly awake to a sharp pain at your throat, you try to scream for help, but not a sound comes out. Frantically, you try to run to the alarm to alert security, slamming the button, cowering in the corner as you realise that you can't see. No one comes. A coldness envelops you, life drained through your throat. You have died.";
+                    choice1.innerText = "Restart";
+                    choice2.innerText = "";
+                }
+                else if (onStoryStep == "Got up")
+                {
+                    story.innerText = "You heave yourself out of bed and get ready to start your day. Walking around your room, a few choice items catch your eye before you head out for the meeting.";
+                    choice1.innerText = "Examine station model";
+                    choice2.innerText = "Look out of the window";
+                    choice3.innerText = "Put on your suit"
+                }
+            }
+            function makeChoice(choice) {
+                if (onStoryStep == "Start")
+                {
+                    if (choice == 1) onStoryStep = "Went back to sleep";
+                    else if (choice == 2) onStoryStep = "Got up";
+                }
+                else if (onStoryStep == "Went back to sleep")
+                {
+                    if (choice == 1) onStoryStep = "Continued sleep";
+                }
+                else if (onStoryStep == "Continued sleep")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Start")
+                {
+                    if (choice == 1) onStoryStep = "Got up";
+                }
+                updateText();
+            }
+        </script>
+    </head>
+    <body onload="body_onLoad()">
+        <!--In here is where you put your items to be rendered to the web page... Scenes of the game? -->
+        <p id="story"></p>
+        <p class="choice"><a id="choice1" onclick="makeChoice(1)"></a></p>
+        <p class="choice"><a id="choice2" onclick="makeChoice(2)"></a></p>
+        <p class="choice"><a id="choice3" onclick="makeChoice(3)">e</a></p>
+    </body>
+</html>
