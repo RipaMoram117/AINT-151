@@ -25,26 +25,34 @@
                 onStoryStep = "Start";
                 updateText();
             }
+            function clearText()
+            {
+                story.innerText = "";
+                choice1.innerText = "";
+                choice2.innerText = "";
+                choice3.innerText = "";
+            }
             function updateText()
             {
+                clearText();
+
+        <!--Introduction sequence, establishing setting and providing exposition, user front end -->
+
                 if (onStoryStep == "Start")
                 {
                     story.innerText = "You awaken to a bright, artificial sunrise running across your face. As your vision clears, you look outside, eyes sweeping across the curved innards of the Prometheus, your spacefaring workplace. You remember your meeting for today. ";
                     choice1.innerText = "Go back to sleep";
                     choice2.innerText = "Get up";
-                    choice3.innerText = "";
                 }
                 else if (onStoryStep == "Went back to sleep")
                 {
                     story.innerText = "You close your eyes and drift back off into sleep, not ready to deal with today's tasks...";
                     choice1.innerText = "Continue";
-                    choice2.innerText = "";
                 }
                 else if (onStoryStep == "Continued sleep")
                 {
                     story.innerText = "You suddenly awake to a sharp pain at your throat, you try to scream for help, but not a sound comes out. Frantically, you try to run to the alarm to alert security, slamming the button, cowering in the corner as you realise that you can't see. No one comes. A coldness envelops you, life drained through your throat. You have died.";
                     choice1.innerText = "Restart";
-                    choice2.innerText = "";
                 }
                 else if (onStoryStep == "Got up")
                 {
@@ -53,8 +61,45 @@
                     choice2.innerText = "Look out of the window";
                     choice3.innerText = "Put on your suit"
                 }
+                else if (onStoryStep == "Examine model")
+                {
+                    story.innerText = "The intricate detail on the black and gold model of the prometheus show surprising detail as you turn it in your hands. Without it, you wouldnt even remember what the outisde of this place looked like.";
+                    choice1.innerText = "Return";
+                }
+                else if (onStoryStep == "Looking through window")
+                {
+                    story.innerText = "You look out of your window, onto the streets of the habitation sector below you. The view would be nice this high up, but space is an important commodity on the station, your  view mostly consists of the other corporate habitation towers. From what little of the street you can see below you, the uniformed populace happily chatting as they enjoy their time off of their jobs.";
+                    choice1.innerText = "Return";
+                }
+                else if (onStoryStep == "Suit")
+                {
+                    story.innerText = "Your pristine suit is a ways more striking than the standard worker uniform. You'll need to put this on before you make your way to the meeting today.";
+                    choice1.innerText = "Get ready and leave";
+                    choice2.innerText = "Return";
+                }
+                else if (onStoryStep == "Leave room")
+                {
+                    story.innerText = "Walking out of the building, you make your way to the SysTeq tower for your meeting. There's some spare time before you need to be getting a move on.";
+                    choice1.innerText = "Grab a coffee";
+                    choice2.innerText = "Look around";
+                    choice3.innerText = "Continue";
+                }
+                else if (onStoryStep == "Coffee")
+                {
+                    story.innerText = "As you approach the Galaxpresso stall, you notice that the line is far longer than you had realised. Maybe you should skip it today.";
+                    choice1.innerText = "Continue";
+
+                }
+                else if (onStoryStep == "Observe lobby")
+                {
+                    story.innerText = "Looking around, you see everyone moving to and from their appointed tasks to keep everything running smoothly, some people happily chatting, some content in their solitude. You ponder for a few moments as the view of Venus, of which the Prometheus is in close orbit.";
+                    choice1.innerText = "Continue";
+                }
             }
             function makeChoice(choice) {
+
+        <!--Introduction sequence, establishing setting and providing exposition, back end functionality -->
+
                 if (onStoryStep == "Start")
                 {
                     if (choice == 1) onStoryStep = "Went back to sleep";
@@ -72,12 +117,45 @@
                 {
                     if (choice == 1) onStoryStep = "Got up";
                 }
+                else if (onStoryStep == "Got up")
+                {
+                    if (choice == 1) onStoryStep = "Examine model";
+                    else if (choice == 2) onStoryStep = "Looking through window";
+                    else if (choice == 3) onStoryStep = "Suit";
+                }
+                else if (onStoryStep == "Examine model")
+                {
+                    if (choice == 1) onStoryStep = "Got up";
+                }
+                else if (onStoryStep == "Looking through window")
+                {
+                    if (choice == 1) onStoryStep = "Got up";
+                }
+                else if (onStoryStep == "Suit")
+                {
+                    if (choice == 1) onStoryStep = "Leave room";
+                    else if (choice == 2) onStoryStep = "Got up";
+                }
+                else if (onStoryStep == "Leave room")
+                {
+                    if (choice == 1) onStoryStep = "Coffee";
+                    else if (choice == 2) onStoryStep = "Look around";
+                    else if (choice == 3) onStoryStep = "Go to meeting";
+                }
+                else if (onStoryStep == "Coffee")
+                {
+                    if (choice == 1) onStoryStep = "Leave room";
+                }
+                else if (onStoryStep == "Look around")
+                {
+                    if (choice == 1) onStoryStep = "Leave room";
+                }
                 updateText();
             }
         </script>
     </head>
     <body onload="body_onLoad()">
-        <!--In here is where you put your items to be rendered to the web page... Scenes of the game? -->
+
         <p id="story"></p>
         <p class="choice"><a id="choice1" onclick="makeChoice(1)"></a></p>
         <p class="choice"><a id="choice2" onclick="makeChoice(2)"></a></p>
