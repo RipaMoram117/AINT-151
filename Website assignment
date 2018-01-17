@@ -3,17 +3,20 @@
     <head>
         <title>Matt Example HTML</title>
         <style>
-        /* Inside here is where you define your CSS styles for your web page
-         * use .'s for classes -> see p class="styledText" and #'s for id's -> see id="btnAlert" */
-        body {
+
+
+        body
+        {
             margin:0;
             padding:0;
         }
-        .styledText {
+        .styledText
+        {
             color:cyan;
             background-color:darkslategrey;
         }
-        .choice {
+        .choice
+        {
             color:blue;
             text-decoration: underline;
             cursor:pointer;
@@ -21,7 +24,8 @@
         </style>
         <script>
             var onStoryStep;
-            function body_onLoad() {
+            function body_onLoad()
+            {
                 onStoryStep = "Start";
                 updateText();
             }
@@ -36,7 +40,7 @@
             {
                 clearText();
 
-        <!--Introduction sequence, establishing setting and providing exposition, user front end -->
+                //Introduction sequence, establishing setting and providing exposition, user front end
 
                 if (onStoryStep == "Start")
                 {
@@ -90,15 +94,336 @@
                     choice1.innerText = "Continue";
 
                 }
-                else if (onStoryStep == "Observe lobby")
+                else if (onStoryStep == "Look around")
                 {
                     story.innerText = "Looking around, you see everyone moving to and from their appointed tasks to keep everything running smoothly, some people happily chatting, some content in their solitude. You ponder for a few moments as the view of Venus, of which the Prometheus is in close orbit.";
                     choice1.innerText = "Continue";
                 }
-            }
-            function makeChoice(choice) {
+                else if (onStoryStep == "Go to meeting")
+                {
+                    story.innerText = "You're making your way to the meeting. However when you are about 5 minutes away, you hear the sounds of screams bellowing from down the corridor. ";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Screamers")
+                {
+                    story.innerText = "As you assess what is going on, you see a woman running from the corridor fall with a cloud of red matter lingering in the air for a second. As it clears, you see one of the robotic security guards, order should be restored soon with that here, though it instead aims the rifle at your head. You quickly duck behind the corner for cover.  You collect your thoughts as you hear the announcement system click on.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Speech intro")
+                {
+                    story.innerText = "Intercom: Hello? Is this thing on? Ehem, my name is Deckard Donelley. As you may have noticed, I have decided to take control of this wretched station, by force, regrettably. For those of you who may be wondering, this takeover is non-negotiable, and anyone resisting will be ...pacified. With force.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Decision")
+                {
+                    story.innerText = "Amidst the chaos, you consider your decisions, you need to do something to get out of here. You see a vent a few feet to your side, and the security room just opposite you.";
+                    choice1.innerText = "Crawl into the vent by your side";
+                    choice2.innerText = "Run to the security room";
+                    choice3.innerText = "Run back to your apartment";
+                }
 
-        <!--Introduction sequence, establishing setting and providing exposition, back end functionality -->
+                //Vent sequence, main event one, user front end
+
+                else if (onStoryStep == "Vent")
+                {
+                    story.innerText = "A few moments into crawling through the vent, you hear the intercom click on again. It's that ...madman, again.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Vent speech")
+                {
+                    story.innerText = "Deckard Donelley: I know you're creeping around in here somewhere, you know. Your vitals chip is still active, and you're doing just peachy ...heart rate's a little high though. I wouldn't recommend you keep hiding, my newfound friends (the security, you assume) will be less willing to let you live as time proceeds.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Vent hatch")
+                {
+                    story.innerText = "You eventually come upon a hatch in the vent, through it you can see two of the station's security bots clearly searching for something.";
+                    choice1.innerText = "Call for them to help you";
+                    choice2.innerText = "Watch them";
+                    choice3.innerText = "Keep going";
+                }
+                else if (onStoryStep == "Vent callForBots")
+                {
+                    story.innerText = "You call for help, and in an instant they turn their attention to your vent. The bots walk up and remove the vent hatch, leaving you free to leave and continue on your journey. As you walk past them, you hear the distinct sound of servos behind you. Turning around, a barrel is now poised at your head, the security bot wishes you a nice day, and a bang signals your demise. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Vent watchBots")
+                {
+                    story.innerText = "You decide to sit quietly and watch the guards as they sweep the room that you can see into. After a short while, they are content that the room is clear, and they storm out, leaving the room in disrepair. These guards are definitely not working like they usually do.";
+                    choice1.innerText = "Return";
+                }
+                else if (onStoryStep == "Vent bridge")
+                {
+                    story.innerText = "You continue going through the vent until you find an exit. Upon inspection, you are now on the bridge, the station's controls are here. You should look around and see if you can do anything here that can help.";
+                    choice1.innerText = "Try to send out a distress signal";
+                    choice2.innerText = "Open the shutters to see outside";
+                    choice3.innerText = "Try to find the origin point of the security bot virus";
+                }
+                else if (onStoryStep == "Bridge distressSignal")
+                {
+                    story.innerText = "You do everything that you can to send out some sort of distress signal, but keep meeting nothing but errors. It seems that during the attack, the communications relay must have been damaged.";
+                    choice1.innerText = "Return";
+                }
+                else if (onStoryStep == "Bridge shutters")
+                {
+                    story.innerText = "You click the big button to open the shutters, and a loud beep meets your ears. The system must be damaged. You press the button again, just to be sure, and they start to open. Almost instantly you feel that something is wrong, and before you can take action, you are swept off of your feet, toward the observation windows. They've been breached! Trying to hold on with all of your might, it isnt enough, and you get blasted out into the void. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Bridge originPoint")
+                {
+                    story.innerText = "You look through the archives and pinpoint where the corrupted bots were first reported. It appears that one lost control in one of the penthouse suites, room 117. You take note of the route and head off in hopes of finding this 'Deckard' guy.";
+                    choice1.innerText = "Start the way to the penthouses";
+                }
+
+                //Security sequence, main event two, user front end
+
+                else if (onStoryStep == "Security room")
+                {
+                    story.innerText = "You dash into the security room and seal the door behind you, you're in one of the safest places on the station. Around you, you can see a control panel with the label reading 'defenses', the stationwide database and a communicator in the corner, blinking with a notification.";
+                    choice1.innerText = "Try to activate the defenses";
+                    choice2.innerText = "Use the database to find Deckard";
+                    choice3.innerText = "Respond to the communicator";
+                }
+                else if (onStoryStep == "Security defenses")
+                {
+                    story.innerText = "You press the button to bring the defenses online, but a verification screen pops up. You don't have the authorisation to do this, you could try to bypass the security protocols, but your hacking skills have never been particularly amazing...";
+                    choice1.innerText = "Try to bypass the security protocols - bring defenses online";
+                    choice2.innerText = "Return - leave the defenses offline";
+                }
+                else if (onStoryStep == "Security defBypass")
+                {
+                    story.innerText = "It seems to be going okay for now, the machine is happily beeping as you run your bypass. It stops making noises for a few seconds, and then a turret pops out of the wall in the room. You've successfully brought the defenses online!";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security turretTrack")
+                {
+                    story.innerText = "You smile to yourself, partly amazed that it worked so well. You walk around to the database so that you can find Deckard, but realise that the turret is tracking you.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security turretTrack2")
+                {
+                    story.innerText = "Turret: Station intrusion detected! Friend or Foe identification malfunctioning, purge protocol active.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security turretDie")
+                {
+                    story.innerText = "Without hesitation, the turret shoots a long burst of bullets into your chest cavity, it turns out that your hacking skills really shouldn't have been trusted. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Security communicator")
+                {
+                    story.innerText = "You answer the call on the communicator, and a voice comes near instantly burtsting through.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security stranger")
+                {
+                    story.innerText = "Stranger: Yes! Yes yes yes yes! You need to help me, I'm stuck in the prison block. Something's shut off the life support and we don't have long left until people start dying here! But something else is wrong ...the guard bots have gone berserk, they're killing everyone on sight. I don't know what's up but you gotta help me man you need to he...";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security cutOff")
+                {
+                    story.innerText = "The man was cut off without warning, you've no idea what has become of him, but you need to look out for yourself before anything else. You won't be of any use to anyone if you're dead.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Security database")
+                {
+                    story.innerText = "You look into the database to find out where Deckard is, the cameras across the station are luckily still working. After a few minutes of searching, you find that he is in the Penthouse section of the station, room 117 to be specific. You should go there and find a way to end this, the best route seems to be to go through the life support centre.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "LifeSupport centre")
+                {
+                    story.innerText = "You enter the life support centre after walking for a short while. You are about to continue on your way to the Penthouses, but you notice a control panel, it could be worth a look.";
+                    choice1.innerText = "Look at the commands on the panel";
+                    choice2.innerText = "Keep going to the Penthouses";
+                }
+                else if (onStoryStep == "LifeSupport panel")
+                {
+                    story.innerText = "Looking at the panel, you see a number of options available to you. Some options stick out as particularly interesting. 'SELF DESTRUCT' seems pretty self explanatory, it's an extreme measure, and would kill anyone potentially still alive here, but it would put an end to this... Another option that's showing to you if an alert in the prison life support, you can restore their life support from here. Doing so will potentially save everyone in that area of the station, but that includes murders and other unsavoury types.";
+                    choice1.innerText = "Destroy the station";
+                    choice2.innerText = "Activate life support for the prison section";
+                    choice3.innerText = "Go to the Penthouses";
+                }
+                else if (onStoryStep == "LifeSupport selfDestruct")
+                {
+                    story.innerText = "Computer: WARNING; PRESSING 'CONFIRM' WILL INSTANTANIOUSLY DETONATE THE ANITMATTER REACTOR POWERING THIS STATION. THE RESULTING EXPLOSION WILL ATOMIZE ALL MATTER WITHIN 450KM. DO YOU WISH TO CONTINUE?";
+                    choice1.innerText = "Confirm";
+                    choice2.innerText = "Return";
+                }
+                else if (onStoryStep == "SelfDestruct confirm")
+                {
+                    story.innerText = "You press the button and feel a rumble below you, a split second later a loud bang resonates and everything that you knew ended. You never felt anything, but the station is destroyed and every living being in the area, including Deckard, is dead. The threat has been dealt with.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "LifeSupport prison")
+                {
+                    story.innerText = "Computer: Do you wish to filter life support power from nonessential systems to restore life support to the prison block? This area has been deemed low priority. NOTE: Several class A inmates (found guilty of rape, murder, treason etc) are housed here. Do you wish to continue?";
+                    choice1.innerText = "Restore life support";
+                    choice2.innerText = "Leave them be";
+                }
+                else if (onStoryStep == "Prison confirm")
+                {
+                    story.innerText = "You restore life support to the prison section, most of the people there should be fine, now you need to go and deal with these security bots so that it was worthwhile.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Prison decline")
+                {
+                    story.innerText = "You leave the prison section to its fate, maybe these people shouldnt be prioritised? There are reasons after all that they are behind these bars.";
+                    choice1.innerText = "Continue";
+                }
+
+                //Aparment sequence, main event three, user front end
+
+                else if (onStoryStep == "Apartment")
+                {
+                    story.innerText = "You sprint back to your apartment, you need to hide if you're going to survive. You should barricade the door while you're still ahead.";
+                    choice1.innerText = "Barricade the door";
+                }
+                else if (onStoryStep == "Apartment decision")
+                {
+                    story.innerText = "After barricading the door, you consider what to do next. You see your bed in the corner, the sink and your closet. You realise now how bare your room really is.";
+                    choice1.innerText = "Hide in the bed";
+                    choice2.innerText = "Hide under the sink";
+                    choice3.innerText = "Hide in the closet";
+                }
+                else if (onStoryStep == "Apartment bed")
+                {
+                    story.innerText = "You would love to hide under the bed, but it is clean to the floor, so you hide inside of it, you sink yourself as flat as you can. You wait for what seems like an eternity, and eventually you hear the door smash open, it sounds like it went clean off of the hinges, the barricade did nothing to delay the bots...";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Bed die")
+                {
+                    story.innerText = "As they slowly search the room, one of the bots comes up to the bed and quickly whips the covers off, revealing you. It looks at you with empty 'eyes' and simarily executes you on the spot. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Apartment closet")
+                {
+                    story.innerText = "You hide in the closet and make as little noise as you can. You wait for them to check your room and hope that they don't find you.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Closet die")
+                {
+                    story.innerText = "After a short while, you hear the bots approaching. Once they get to the door, they burst through an instant, some good your barricade did. They search around your room for a minute or so, and then once of the bots rips the door off of the closet. It immedicately identifies you as a threat, and fires a burst of bullets at you before you can retaliate. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Apartment sink")
+                {
+                    story.innerText = "You try to hide under the sink in your apartment, but it's not going to work at all. You can't really justify to yourself why you thought that this was a good idea... You'll hvae to go for something else before they turn up and it's too late.";
+                    choice1.innerText = "Continue";
+                }
+
+                //Penthouse sequence, ending events, user front end
+
+                else if (onStoryStep == "Penthouse")
+                {
+                    story.innerText = "After a while walking, you eventually see the large penthouse sign. You walk in, looking for room 117.";
+                    choice1.innerText = "Search the other rooms";
+                    choice2.innerText = "Keep walking"
+                }
+                else if (onStoryStep == "Penthouse otherRooms")
+                {
+                    story.innerText = "You find one other door unlocked, a search inside reveals nothing of interest, he must be staying in the other room.";
+                    choice1.innerText = "Return";
+                }
+                else if (onStoryStep == "Penthouse 117")
+                {
+                    story.innerText = "You come upon the door of penthouse 117, wide open. There isn't a guard in sight, it's as if he is inviting you in... You sneak through and find yourself at the end of a large room, Deckard is deep into his 'work' on the other end of the room, encompassed by an impressive array of computer systems.";
+                    choice1.innerText = "Sneak up closer to him";
+                    choice2.innerText = "Lunge at him";
+                    choice3.innerText = "Confront him";
+                }
+                else if (onStoryStep == "Penthouse lunge")
+                {
+                    story.innerText = "This needs to stop! You start to run and lunge at him, you can stop this right now. ...But you hear a click after a few steps. Deckard clears his throat without even turning to face you. You notice a security bot in the corner of the room.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse holdup")
+                {
+                    story.innerText = "Deckard Donelley: You're far too brash, you know? Not one second to consider the bigger picture; why I might have committed this atrocity, how I did it ...if there is a bot in this very room, rifle poised at you. It's disappointing, I had assumed that you were a man of vision. That was my mistake.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse die")
+                {
+                    story.innerText = "Without hesitation, the security bot shoots you in the chest the second Deckard stops talking. You fall to the floor, you almost instantly feel your conciousness slip. The bullet went right through your heart, there's no getting back ...not from this one. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Penthouse sneak")
+                {
+                    story.innerText = "You sneak up to the man and once you pass the doorway, you notice a bot in the corner of the room. It obviously knows you are here, tracking you with emotionless eyes, but it seems docile, for now at least. You get yourself a little closer to Deckard, until eventually you are but a few paces from him. You see a knife in his back pocket sticking out.";
+                    choice1.innerText = "Introduce yourself";
+                    choice2.innerText = "Take his knife and slash his throat";
+                }
+                else if (onStoryStep == "Penthouse introduction")
+                {
+                    story.innerText = "You open your mouth to introduce yourself, and Deckard apruptly cuts you off.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse speech")
+                {
+                    story.innerText = "Deckard Donelley: So, you're the one that's been eluding me?  ...interesting. Sorry I'd assumed that you would be more ...well not a suit to be honest. I suppose you'll want to know why I've done this? Well you see, I was once an executive engineer in the science department on this station, in the first days of it's being. We had a problem with the station that I was tasked with dealing with, do you know what that task was?";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse speech2")
+                {
+                    story.innerText = "Deckard Donelley: That problem was that it turns out, no matter how well you vett people, crime will always exist it seems. As you can imagine, this is extremely problematic on an official science station, such as this one. We first tried human security, but they eventually became corrupt, thus I was tasked with making autonomous security. It took me a few years, but I eventually felt success, and we are left with the models that you see here today.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse speech3")
+                {
+                    story.innerText = "Deckard Donelley: Now I never expected fame or glory, but I did obviously assume that I would have been credited for my work. But instead, once I had completed the task, the overseers thought it best to remove any existence of me, and lock me up in maximum security prison. I suppose they thought I was the only one capable of breaching their new fancy security force. Well I'll spoare you the tedious details, but I was not the only one, and I have now broken out of that wretched prison. I will use this station to make a point, to show them the mistakes of their ways!";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse speechDecision")
+                {
+                    story.innerText = "He seems to be on some sort of power trip, not even paying attention to you, ranting about how he was wronged. Assessing your options, you should do something soon before he again pays mind to you.";
+                    choice1.innerText = "Take the knife while his back is turned and kill him";
+                    choice2.innerText = "Run and try to escape";
+                    choice3.innerText = "Keep listening";
+                }
+                else if (onStoryStep == "Penthouse keepListening")
+                {
+                    story.innerText = "You begin listening to what he is actually saying";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse martyr")
+                {
+                    story.innerText = "Deckard Donnelly: And that, poor soul, is why you cannot continue disrupting my plans. To truly send the message, you will be the martyr.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse execution")
+                {
+                    story.innerText = "You try to talk sense to him, but before you can muster a word, the bot behind you lets loose a round into your skull. You have died.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Penthouse neckSlash")
+                {
+                    story.innerText = "You quickly grab his knife and bring it to his throat. As he dies, the bot with you jolts to action, but falls to the floor after a few seconds. It seems that Deckard was controlling the bots directtly, with his own brain as the command center. That's it, the threat is over! You may not have been able to save anyone else on the station, but stopping Deckard here means that he can't do the same to other stations, or even colonies. He was far too dangerous to let live, and there is not a single doubt that you have saved a great many lives. No one knows how far Deckard could have gone.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Game win")
+                {
+                    story.innerText = "Congratulations! You have won the game, Deckard's nefarious intentions have been stopped in their tracks, and countless lives have no doubt been saved.";
+                    choice1.innerText = "Restart";
+                }
+                else if (onStoryStep == "Penthouse escape")
+                {
+                    story.innerText = "While he isn't paying you much attention, you turn around and run, you run as fast as you can to get out of here. You need to find someone, anyone really, that can help. But then you hear it. The sound of bot servos moving into position, a quick glance over your shoulder shows that it is tracking your head with it's rifle. you don't stand a chance.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse confront")
+                {
+                    story.innerText = "You: Deckard! This is enough! Can't you see that you've made your point? Too many people have died, no matter why you're doing this, you NEED to stop.";
+                    choice1.innerText = "Continue";
+                }
+                else if (onStoryStep == "Penthouse confront2")
+                {
+                    story.innerText = "Deckard Donelley: You think I don't have my reasons? I'll show you what they've done to me!";
+                    choice1.innerText = "Continue";
+                }
+
+            }
+            function makeChoice(choice)
+            {
+
+                //Introduction sequence, establishing setting and providing exposition, back end functionality
 
                 if (onStoryStep == "Start")
                 {
@@ -150,6 +475,260 @@
                 {
                     if (choice == 1) onStoryStep = "Leave room";
                 }
+                else if (onStoryStep == "Go to meeting")
+                {
+                    if (choice == 1) onStoryStep = "Screamers";
+                }
+                else if (onStoryStep == "Screamers")
+                {
+                    if (choice == 1) onStoryStep = "Speech intro";
+                }
+                else if (onStoryStep == "Speech intro")
+                {
+                    if (choice == 1) onStoryStep = "Decision";
+                }
+                else if (onStoryStep == "Decision")
+                {
+                    if (choice == 1) onStoryStep = "Vent";
+                    else if (choice == 2) onStoryStep = "Security room";
+                    else if (choice == 3) onStoryStep = "Apartment";
+                }
+
+                //Vent sequence, main event one, back end functionality
+
+                else if (onStoryStep == "Vent")
+                {
+                    if (choice == 1) onStoryStep = "Vent speech";
+                }
+                else if (onStoryStep == "Vent speech")
+                {
+                    if (choice == 1) onStoryStep = "Vent hatch";
+                }
+                else if (onStoryStep == "Vent hatch")
+                {
+                    if (choice == 1) onStoryStep = "Vent callForBots";
+                    else if (choice == 2) onStoryStep = "Vent watchBots";
+                    else if (choice == 3) onStoryStep = "Vent bridge";
+                }
+                else if (onStoryStep == "Vent callForBots")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Vent watchBots")
+                {
+                    if (choice == 1) onStoryStep = "Vent hatch";
+                }
+                else if (onStoryStep == "Vent bridge")
+                {
+                    if (choice == 1) onStoryStep = "Bridge distressSignal";
+                    else if (choice == 2) onStoryStep = "Bridge shutters";
+                    else if (choice == 3) onStoryStep = "Bridge originPoint";
+                }
+                else if (onStoryStep == "Bridge distressSignal")
+                {
+                    if (choice == 1) onStoryStep = "Vent bridge";
+                }
+                else if (onStoryStep == "Bridge shutters")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Bridge originPoint")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse";
+                }
+
+                //Security sequence, main event two, back end functionality
+
+                else if (onStoryStep == "Security room")
+                {
+                    if (choice == 1) onStoryStep = "Security defenses";
+                    else if (choice == 2) onStoryStep = "Security database";
+                    else if (choice == 3) onStoryStep = "Security communicator";
+                }
+                else if (onStoryStep == "Security defBypass")
+                {
+                    if (choice == 1) onStoryStep = "Security turretTrack";
+                }
+                else if (onStoryStep == "Security turretTrack")
+                {
+                    if (choice == 1) onStoryStep = "Security turretTrack2";
+                }
+                else if (onStoryStep == "Security turretTrack2")
+                {
+                    if (choice == 1) onStoryStep = "Security turretDie";
+                }
+                else if (onStoryStep == "Security communicator")
+                {
+                    if (choice == 1) onStoryStep = "Security stranger";
+                }
+                else if (onStoryStep == "Security stranger")
+                {
+                    if (choice == 1) onStoryStep = "Security cutoff";
+                }
+                else if (onStoryStep == "Security cutoff")
+                {
+                    if (choice == 1) onStoryStep = "Security database";
+                }
+                else if (onStoryStep == "Security database")
+                {
+                    if (choice == 1) onStoryStep = "LifeSupport centre";
+                }
+                else if (onStoryStep == "LifeSupport centre")
+                {
+                    if (choice == 1) onStoryStep = "LifeSupport panel";
+                    else if (choice == 2) onStoryStep = "Penthouse";
+                }
+                else if (onStoryStep == "LifeSupport panel")
+                {
+                    if (choice == 1) onStoryStep = "LifeSupport selfDestruct";
+                    else if (choice == 2) onStoryStep = "LifeSupport prison";
+                    else if (choice == 3) onStoryStep = "Penthouse";
+                }
+                else if (onStoryStep == "LifeSupport selfDestruct")
+                {
+                    if (choice == 1) onStoryStep = "SelfDestruct confirm";
+                    else if (choice == 2) onStoryStep = "LifeSupport panel";
+                }
+                else if (onStoryStep == "SelfDestruct confirm")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "LifeSupport prison")
+                {
+                    if (choice == 1) onStoryStep = "Prison confirm";
+                    else if (choice == 2) onStoryStep = "Prison decline";
+                }
+                else if (onStoryStep == "Prison confirm")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse";
+                }
+                else if (onStoryStep == "Prison decline")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse";
+                }
+
+                //Apartment sequence, main event three, back end functionality
+
+                else if (onStoryStep == "Apartment")
+                {
+                    if (choice == 1) onStoryStep = "Apartment decision";
+                }
+                else if (onStoryStep == "Apartment decision")
+                {
+                    if (choice == 1) onStoryStep = "Apartment bed";
+                    else if (choice == 2) onStoryStep = "Apartment sink";
+                    else if (choice == 3) onStoryStep = "Apartment closet";
+                }
+                else if (onStoryStep == "Apartment bed")
+                {
+                    if (choice == 1) onStoryStep = "Bed die";
+                }
+                else if (onStoryStep == "Bed die")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Apartment closet")
+                {
+                    if (choice == 1) onStoryStep = "closet die";
+                }
+                else if (onStoryStep == "Closet die")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Apartment sink")
+                {
+                    if (choice == 1) onStoryStep = "Bed decision";
+                }
+
+                //Penthouse sequence, ending events, back end functionality
+
+                else if (onStoryStep == "Penthouse")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse otherRooms";
+                    else if (choice == 2) onStoryStep = "Penthouse 117"
+                }
+                else if (onStoryStep == "Penthouse otherRooms")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse";
+                }
+                else if (onStoryStep == "Penthouse 117")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse sneak";
+                    else if (choice == 2) onStoryStep = "Penthouse lunge"
+                    else if (choice == 3) onStoryStep = "Penthouse confront"
+                }
+                else if (onStoryStep == "Penthouse lunge")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse holdup";
+                }
+                else if (onStoryStep == "Penthouse holdup")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse die";
+                }
+                else if (onStoryStep == "Penthouse die")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Penthouse sneak")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse introduction";
+                    else if (choice == 2) onStoryStep = "Penthouse neckSlash"
+                }
+                else if (onStoryStep == "Penthouse introduction")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse speech";
+                }
+                else if (onStoryStep == "Penthouse speech")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse speech2";
+                }
+                else if (onStoryStep == "Penthouse speech2")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse speech3";
+                }
+                else if (onStoryStep == "Penthouse speech3")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse speechDecision";
+                }
+                else if (onStoryStep == "Penthouse sneak")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse neckSlash";
+                    else if (choice == 2) onStoryStep = "Penthouse escape"
+                    else if (choice == 3) onStoryStep = "Penthouse keepListening"
+                }
+                else if (onStoryStep == "Penthouse keepListening")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse martyr";
+                }
+                else if (onStoryStep == "Penthouse martyr")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse execution";
+                }
+                else if (onStoryStep == "Penthouse execution")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Penthouse neckSlash")
+                {
+                    if (choice == 1) onStoryStep = "Game win";
+                }
+                else if (onStoryStep == "Game win")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
+                else if (onStoryStep == "Penthouse escape")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse holdup";
+                }
+                else if (onStoryStep == "Penthouse confront")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse confront2";
+                }
+                else if (onStoryStep == "Penthouse confront2")
+                {
+                    if (choice == 1) onStoryStep = "Penthouse speech";
+                }
+
                 updateText();
             }
         </script>
