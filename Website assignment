@@ -317,7 +317,7 @@
                 }
                 else if (onStoryStep == "Apartment sink")
                 {
-                    story.innerText = "You try to hide under the sink in your apartment, but it's not going to work at all. You can't really justify to yourself why you thought that this was a good idea... You'll hvae to go for something else before they turn up and it's too late.";
+                    story.innerText = "You try to hide under the sink in your apartment, but it's not going to work at all. You can't really justify to yourself why you thought that this was a good idea... You'll have to go for something else before they turn up and it's too late.";
                     choice1.innerText = "→Continue";
                 }
 
@@ -379,7 +379,7 @@
                 }
                 else if (onStoryStep == "Penthouse speech3")
                 {
-                    story.innerText = "Deckard Donelley: Now I never expected fame or glory, but I did obviously assume that I would have been credited for my work. But instead, once I had completed the task, the overseers thought it best to remove any existence of me, and lock me up in maximum security prison. I suppose they thought I was the only one capable of breaching their new fancy security force. Well I'll spoare you the tedious details, but I was not the only one, and I have now broken out of that wretched prison. I will use this station to make a point, to show them the mistakes of their ways!";
+                    story.innerText = "Deckard Donelley: Now I never expected fame or glory, but I did obviously assume that I would have been credited for my work. But instead, once I had completed the task, the overseers thought it best to remove any existence of me, and lock me up in maximum security prison. I suppose they thought I was the only one capable of breaching their new fancy security force. Well I'll spare you the tedious details, but I was not the only one, and I have now broken out of that wretched prison. I will use this station to make a point, to show them the mistakes of their ways!";
                     choice1.innerText = "→Continue";
                 }
                 else if (onStoryStep == "Penthouse speechDecision")
@@ -556,6 +556,11 @@
                     else if (choice == 2) onStoryStep = "Security database";
                     else if (choice == 3) onStoryStep = "Security communicator";
                 }
+                else if (onStoryStep == "Security defenses")
+                {
+                    if (choice == 1) onStoryStep = "Security defBypass";
+                    else if (choice == 2) onStoryStep = "Security";
+                }
                 else if (onStoryStep == "Security defBypass")
                 {
                     if (choice == 1) onStoryStep = "Security turretTrack";
@@ -568,15 +573,19 @@
                 {
                     if (choice == 1) onStoryStep = "Security turretDie";
                 }
+                else if (onStoryStep == "Security turretDie")
+                {
+                    if (choice == 1) onStoryStep = "Start";
+                }
                 else if (onStoryStep == "Security communicator")
                 {
                     if (choice == 1) onStoryStep = "Security stranger";
                 }
                 else if (onStoryStep == "Security stranger")
                 {
-                    if (choice == 1) onStoryStep = "Security cutoff";
+                    if (choice == 1) onStoryStep = "Security cutOff";
                 }
-                else if (onStoryStep == "Security cutoff")
+                else if (onStoryStep == "Security cutOff")
                 {
                     if (choice == 1) onStoryStep = "Security database";
                 }
@@ -640,7 +649,7 @@
                 }
                 else if (onStoryStep == "Apartment closet")
                 {
-                    if (choice == 1) onStoryStep = "closet die";
+                    if (choice == 1) onStoryStep = "Closet die";
                 }
                 else if (onStoryStep == "Closet die")
                 {
@@ -648,7 +657,7 @@
                 }
                 else if (onStoryStep == "Apartment sink")
                 {
-                    if (choice == 1) onStoryStep = "Bed decision";
+                    if (choice == 1) onStoryStep = "Apartment decision";
                 }
 
                 //Penthouse sequence, ending events, back end functionality
@@ -701,7 +710,7 @@
                 {
                     if (choice == 1) onStoryStep = "Penthouse speechDecision";
                 }
-                else if (onStoryStep == "Penthouse sneak")
+                else if (onStoryStep == "Penthouse speechDecision")
                 {
                     if (choice == 1) onStoryStep = "Penthouse neckSlash";
                     else if (choice == 2) onStoryStep = "Penthouse escape"
